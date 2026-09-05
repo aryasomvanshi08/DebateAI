@@ -2,7 +2,7 @@ import pytest
 
 from agents.moderator import load_moderator_prompt, validate_topic
 from agents.pro_agent import load_pro_prompt, validate_pro_inputs
-
+from agents.con_agent import load_con_prompt, validate_con_inputs
 
 # Moderator Agent tests
 
@@ -94,4 +94,54 @@ def test_non_string_pro_input_raises_error():
         validate_pro_inputs(
             123,
             "Present arguments supporting the topic.",
+        )
+
+def test_con_prompt_loads():
+    prompt = load_con_prompt()
+
+    assert isinstance(prompt, str)
+    assert len(prompt) > 0
+
+
+def test_valid_con_inputs():
+    topic, instruction = validate_con_inputs(
+        "  Should college education be free?  ",
+        "  Present arguments opposing free college education.  ",
+    )
+
+    assert topic == "Should college education be free?"
+    assert instruction == (
+        "Present arguments opposing free college education."
+    )
+
+
+def test_empty_con_topic_raises_error():
+    with pytest.raises(ValueError):
+        validate_con_inputs(
+            "   ",
+            "Present arguments opposing the topic.",
+        )
+
+
+def test_empty_con_instruction_raises_error():
+    with pytest.raises(ValueError):
+        validate_con_inputs(
+            "Should college education be free?",
+            "   ",
+        )
+
+
+def test_short_con_instruction_raises_error():
+    with pytest.raises(ValueError):
+        validate_con_inputs(
+            "Should college education be free?",
+            "No",
+        )
+
+
+def test_non_string_con_topic_raises_error():
+    with pytest.raises(TypeError):
+        validate_con_inputs(
+            123,
+            "Present arguments opposing the topic.",
         )
