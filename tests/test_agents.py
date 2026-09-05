@@ -7,6 +7,7 @@ from agents.rebuttal import (
     load_rebuttal_prompt,
     validate_rebuttal_inputs,
 )
+from graph.state import DebateState, create_initial_state
 
 # Moderator Agent tests
 
@@ -252,3 +253,38 @@ def test_wrong_argument_position_raises_error():
             pro_argument,
             con_argument,
         )
+
+def test_create_initial_state():
+    state = create_initial_state(
+        "  Should artificial intelligence replace teachers?  "
+    )
+
+    assert state == {
+        "user_topic": (
+            "Should artificial intelligence replace teachers?"
+        )
+    }
+
+
+def test_initial_state_matches_debate_state():
+    state: DebateState = create_initial_state(
+        "Should college education be free?"
+    )
+
+    assert "user_topic" in state
+    assert isinstance(state["user_topic"], str)
+
+
+def test_empty_initial_topic_raises_error():
+    with pytest.raises(ValueError):
+        create_initial_state("   ")
+
+
+def test_short_initial_topic_raises_error():
+    with pytest.raises(ValueError):
+        create_initial_state("AI")
+
+
+def test_non_string_initial_topic_raises_error():
+    with pytest.raises(TypeError):
+        create_initial_state(123)
