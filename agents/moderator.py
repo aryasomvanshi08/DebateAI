@@ -77,7 +77,6 @@ def create_moderator_model():
 
     model = ChatGoogleGenerativeAI(
         model=MODEL_NAME,
-        temperature=1.0,
         max_retries=4,
     )
 
