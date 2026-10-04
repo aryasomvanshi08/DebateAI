@@ -1,4 +1,4 @@
-import fitz  # PyMuPDF
+import fitz
 from pathlib import Path
 
 def load_pdf_text(file_path: str) -> str:
@@ -6,12 +6,9 @@ def load_pdf_text(file_path: str) -> str:
     if not file_path.exists():
         raise FileNotFoundError(f"No such file: {file_path}")
     doc = fitz.open(file_path)
-    pages_text = []
-    for page in doc:
-        pages_text.append(page.get_text())
+    pages_text = [page.get_text() for page in doc]
     doc.close()
     return "\n".join(pages_text)
-
 
 def load_documents_from_folder(folder_path: str) -> dict:
     folder = Path(folder_path)

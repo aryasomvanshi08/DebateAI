@@ -12,7 +12,6 @@ def chunk_text(text: str, chunk_size: int = 800, overlap: int = 100) -> list[str
         start += (chunk_size - overlap)
     return chunks
 
-
 def chunk_documents(documents: dict, chunk_size: int = 800, overlap: int = 100) -> list[dict]:
     all_chunks = []
     for filename, text in documents.items():
