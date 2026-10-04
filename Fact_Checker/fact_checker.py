@@ -154,10 +154,28 @@ Rules:
 
 
 def fact_check_debate(payload: dict, checker: "FactChecker") -> dict:
-    pro_results = [checker.fact_check(claim) for claim in payload["pro_arguments"]]
-    con_results = [checker.fact_check(claim) for claim in payload["con_arguments"]]
+    """
+    Takes Member 1's handoff payload — {"topic", "pro_arguments", "con_arguments"} —
+    and fact-checks every argument on both sides.
+
+    Returns the exact interface shape agreed in the team's integration doc:
+      {"claims": [...], "evidence": [...], "fact_check_results": [...]}
+    so Member 3's Judge Agent can consume it directly.
+    """
+    all_claims = payload["pro_arguments"] + payload["con_arguments"]
+    all_results = [checker.fact_check(claim) for claim in all_claims]
+
     return {
-        "topic": payload["topic"],
-        "pro_fact_checks": pro_results,
-        "con_fact_checks": con_results
+        "claims": [r["claim"] for r in all_results],
+        "evidence": [r["evidence"] for r in all_results],
+        "fact_check_results": [
+            {
+                "claim": r["claim"],
+                "verdict": r["verdict"],
+                "confidence": r["confidence"],
+                "sources": r["sources"],
+                "explanation": r["explanation"]
+            }
+            for r in all_results
+        ]
     }
