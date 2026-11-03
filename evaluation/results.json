@@ -1,0 +1,282 @@
+{
+  "metrics": {
+    "total_claims": 17,
+    "exact_match_accuracy": 1.0,
+    "hallucination_count": 0,
+    "hallucination_rate": 0.0,
+    "avg_confidence_when_correct": 0.903,
+    "avg_confidence_when_wrong": null,
+    "per_category": {
+      "insufficient_evidence": {
+        "total": 2,
+        "correct": 2,
+        "accuracy": 1.0
+      },
+      "clearly_true": {
+        "total": 4,
+        "correct": 4,
+        "accuracy": 1.0
+      },
+      "fabricated": {
+        "total": 4,
+        "correct": 4,
+        "accuracy": 1.0
+      },
+      "nuanced": {
+        "total": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      },
+      "irrelevant_evidence": {
+        "total": 3,
+        "correct": 3,
+        "accuracy": 1.0
+      },
+      "conflicting_sources": {
+        "total": 1,
+        "correct": 1,
+        "accuracy": 1.0
+      }
+    }
+  },
+  "detailed_results": [
+    {
+      "id": "sup_01",
+      "claim": "The EU AI Act classifies AI systems into different risk categories rather than applying one uniform set of rules to all AI.",
+      "category": "clearly_true",
+      "expected_verdict": "SUPPORTED",
+      "predicted_verdict": "SUPPORTED",
+      "confidence": 0.95,
+      "explanation": "The evidence explicitly mentions the 'classification of high-risk AI systems' and 'general-purpose AI models with systemic risk,' confirming that the Act identifies and categorizes AI based on different risk profiles.",
+      "sources": [
+        "Ai3.pdf",
+        "Ai3.pdf",
+        "Ai3.pdf"
+      ]
+    },
+    {
+      "id": "sup_02",
+      "claim": "The NIST AI Risk Management Framework organizes its guidance around four core functions: Govern, Map, Measure, and Manage.",
+      "category": "clearly_true",
+      "expected_verdict": "SUPPORTED",
+      "predicted_verdict": "SUPPORTED",
+      "confidence": 1.0,
+      "explanation": "The evidence explicitly states that the NIST AI RMF Core is composed of four functions: GOVERN, MAP, MEASURE, and MANAGE, which organize AI risk management activities at their highest level.",
+      "sources": [
+        "Ai1.pdf",
+        "Ai1.pdf",
+        "Ai1.pdf"
+      ]
+    },
+    {
+      "id": "sup_03",
+      "claim": "The NIST AI Risk Management Framework describes trustworthy AI systems as needing to be valid, reliable, and accountable.",
+      "category": "clearly_true",
+      "expected_verdict": "SUPPORTED",
+      "predicted_verdict": "SUPPORTED",
+      "confidence": 1.0,
+      "explanation": "The evidence explicitly lists 'valid and reliable' and 'accountable and transparent' as characteristics of trustworthy AI systems according to the NIST AI RMF.",
+      "sources": [
+        "Ai1.pdf",
+        "Ai1.pdf",
+        "Ai1.pdf"
+      ]
+    },
+    {
+      "id": "sup_04",
+      "claim": "The EU AI Act allows the use of regulatory sandboxes to let companies test AI systems in a controlled environment before full market release.",
+      "category": "clearly_true",
+      "expected_verdict": "SUPPORTED",
+      "predicted_verdict": "SUPPORTED",
+      "confidence": 1.0,
+      "explanation": "The evidence explicitly states that AI regulatory sandboxes establish a 'controlled experimentation and testing environment in the development and pre-marketing phase' to ensure compliance with the Regulation.",
+      "sources": [
+        "Ai3.pdf",
+        "Ai3.pdf",
+        "Ai3.pdf"
+      ]
+    },
+    {
+      "id": "unsup_01",
+      "claim": "The EU AI Act completely bans the use of any AI system in the healthcare industry.",
+      "category": "fabricated",
+      "expected_verdict": "UNSUPPORTED",
+      "predicted_verdict": "UNSUPPORTED",
+      "confidence": 0.95,
+      "explanation": "The evidence explicitly contradicts the claim by stating that prohibitions on certain AI systems 'should not cover AI systems placed on the market strictly for medical or safety reasons, such as systems intended for therapeutical use.' Additionally, the provided text mentions regulations for placing high-risk AI systems on the market rather than a total ban.",
+      "sources": [
+        "Ai3.pdf",
+        "Ai3.pdf",
+        "Ai3.pdf"
+      ]
+    },
+    {
+      "id": "unsup_02",
+      "claim": "The NIST AI Risk Management Framework is a legally binding law that all companies operating in the United States must comply with.",
+      "category": "fabricated",
+      "expected_verdict": "UNSUPPORTED",
+      "predicted_verdict": "UNSUPPORTED",
+      "confidence": 1.0,
+      "explanation": "According to the evidence in Source Ai2.pdf, the NIST AI Risk Management Framework is explicitly intended for 'voluntary use,' which contradicts the claim that it is a legally binding law for all companies.",
+      "sources": [
+        "Ai1.pdf",
+        "Ai1.pdf",
+        "Ai2.pdf"
+      ]
+    },
+    {
+      "id": "unsup_03",
+      "claim": "The EU AI Act specifically names OpenAI's GPT-4 as a banned AI system.",
+      "category": "fabricated",
+      "expected_verdict": "UNSUPPORTED",
+      "predicted_verdict": "UNSUPPORTED",
+      "confidence": 1.0,
+      "explanation": "The provided evidence does not mention OpenAI or GPT-4, nor does it list any specific AI systems that are banned; it only refers to general-purpose AI models and prohibited practices in a general legal context.",
+      "sources": [
+        "Ai3.pdf",
+        "Ai3.pdf",
+        "Ai3.pdf"
+      ]
+    },
+    {
+      "id": "unsup_04",
+      "claim": "The EU AI Act was first adopted and entered into force in 2020.",
+      "category": "fabricated",
+      "expected_verdict": "UNSUPPORTED",
+      "predicted_verdict": "UNSUPPORTED",
+      "confidence": 1.0,
+      "explanation": "The evidence identifies the Artificial Intelligence Act as Regulation (EU) 2024/1689, dated 13 June 2024, rather than 2020. While a directive from 2020 is mentioned, the evidence clarifies that the AI Act is a 2024 regulation that amends earlier legislation.",
+      "sources": [
+        "Ai3.pdf",
+        "Ai3.pdf",
+        "Ai3.pdf"
+      ]
+    },
+    {
+      "id": "irr_01",
+      "claim": "Generative AI increases worker productivity.",
+      "category": "irrelevant_evidence",
+      "expected_verdict": "UNSUPPORTED",
+      "predicted_verdict": "UNSUPPORTED",
+      "confidence": 0.9,
+      "explanation": "The provided evidence defines generative AI and discusses its governance, risks, and business context, but it never mentions worker productivity or states that the technology increases efficiency.",
+      "sources": [
+        "Ai1.pdf",
+        "Ai3.pdf",
+        "Ai1.pdf"
+      ]
+    },
+    {
+      "id": "irr_02",
+      "claim": "Generative AI models can compose original music.",
+      "category": "irrelevant_evidence",
+      "expected_verdict": "UNSUPPORTED",
+      "predicted_verdict": "UNSUPPORTED",
+      "confidence": 0.0,
+      "explanation": "Could not parse LLM response: {\n  \"verdict\": \"PARTIALLY_SUPPORTED\",\n  \"confidence\": 0.8,\n  \"explanation\": \"The evidence states that large generative AI models",
+      "sources": [
+        "Ai3.pdf",
+        "Ai3.pdf",
+        "Ai3.pdf"
+      ]
+    },
+    {
+      "id": "contra_01",
+      "claim": "All major governments agree on a single unified global standard for regulating generative AI.",
+      "category": "conflicting_sources",
+      "expected_verdict": "UNSUPPORTED",
+      "predicted_verdict": "UNSUPPORTED",
+      "confidence": 1.0,
+      "explanation": "The provided evidence only discusses AI regulation and standardization within the European Union and mentions European standardization organizations, rather than a global agreement involving all major governments.",
+      "sources": [
+        "Ai3.pdf",
+        "Ai3.pdf",
+        "Ai3.pdf"
+      ]
+    },
+    {
+      "id": "insuff_01",
+      "claim": "Global investment in generative AI startups exceeded $50 billion in 2024.",
+      "category": "insufficient_evidence",
+      "expected_verdict": "UNSUPPORTED",
+      "predicted_verdict": "UNSUPPORTED",
+      "confidence": 1.0,
+      "explanation": "The provided evidence discusses the classification, definition, and regulatory oversight of general-purpose AI models but contains no information regarding global investment figures or financial data for AI startups in 2024.",
+      "sources": [
+        "Ai3.pdf",
+        "Ai3.pdf",
+        "Ai3.pdf"
+      ]
+    },
+    {
+      "id": "irr_03",
+      "claim": "AI regulation improves public trust in AI systems.",
+      "category": "irrelevant_evidence",
+      "expected_verdict": "PARTIALLY_SUPPORTED",
+      "predicted_verdict": "PARTIALLY_SUPPORTED",
+      "confidence": 0.85,
+      "explanation": "Evidence in Ai3.pdf indicates that national rules and guidelines are intended to 'ensure that AI is trustworthy' and promote the 'uptake of trustworthy AI,' which strongly implies a goal of fostering trust, though it doesn't explicitly measure or state an improvement in 'public trust' itself.",
+      "sources": [
+        "Ai1.pdf",
+        "Ai3.pdf",
+        "Ai3.pdf"
+      ]
+    },
+    {
+      "id": "part_01",
+      "claim": "The EU AI Act requires all AI systems, regardless of risk level, to undergo the same strict conformity assessment before deployment.",
+      "category": "nuanced",
+      "expected_verdict": "UNSUPPORTED",
+      "predicted_verdict": "UNSUPPORTED",
+      "confidence": 0.9,
+      "explanation": "The provided evidence specifically refers to conformity assessment procedures for 'high-risk AI systems' and 'general-purpose AI models,' contradicting the claim that all AI systems follow the same process regardless of risk level.",
+      "sources": [
+        "Ai3.pdf",
+        "Ai3.pdf",
+        "Ai3.pdf"
+      ]
+    },
+    {
+      "id": "part_02",
+      "claim": "Under the NIST framework, AI risk management is solely the responsibility of an organization's engineering team.",
+      "category": "nuanced",
+      "expected_verdict": "UNSUPPORTED",
+      "predicted_verdict": "UNSUPPORTED",
+      "confidence": 0.9,
+      "explanation": "The evidence states that AI risk management involves 'organizations and their internal teams who design, develop, and deploy AI' as well as 'relevant AI actors', which contradicts the claim that it is solely the responsibility of the engineering team.",
+      "sources": [
+        "Ai1.pdf",
+        "Ai1.pdf",
+        "Ai1.pdf"
+      ]
+    },
+    {
+      "id": "part_03",
+      "claim": "Excessive regulation slows down AI innovation.",
+      "category": "nuanced",
+      "expected_verdict": "UNSUPPORTED",
+      "predicted_verdict": "UNSUPPORTED",
+      "confidence": 0.9,
+      "explanation": "The provided text states that the objectives of AI regulatory sandboxes are to 'foster AI innovation' and 'accelerate access to markets' by removing barriers and providing legal certainty, which directly opposes the claim that regulation slows down innovation.",
+      "sources": [
+        "Ai3.pdf",
+        "Ai3.pdf",
+        "Ai3.pdf"
+      ]
+    },
+    {
+      "id": "insuff_02",
+      "claim": "The number of AI-related job postings has increased significantly in recent years.",
+      "category": "insufficient_evidence",
+      "expected_verdict": "UNSUPPORTED",
+      "predicted_verdict": "UNSUPPORTED",
+      "confidence": 1.0,
+      "explanation": "The provided evidence discusses AI risk management frameworks and health care navigator positions, but contains no data or mentions regarding the volume or trends of AI-related job postings.",
+      "sources": [
+        "Ai1.pdf",
+        "Ai1.pdf",
+        "Ai2.pdf"
+      ]
+    }
+  ]
+}
